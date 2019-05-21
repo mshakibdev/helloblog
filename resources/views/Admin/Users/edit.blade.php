@@ -9,9 +9,9 @@
         <hr>
         <div class="row">
         <div class="col-md-3">
-            <img src="{{$user->photo->path}}" height="250" width="250" alt="" class="img-responsive img-rounded">
+            <img src="{{$user->photo->path}}" height="50%" width="70%" alt="" class="img-responsive img-rounded">
         </div>
-        <div class="col-md-9">
+        <div class="col-md-6">
             {!! Form::model($user , ['method'=>'PATCH','action'=>['Admin\AdminUsersController@update',$user->id], 'files'=>'true']) !!}
 
             <div class="form-group">
@@ -43,16 +43,28 @@
                 {!! Form::password('password',null,['class'=>'form-control']) !!}
             </div>
 
-            <div class="form-group">
-                {!! Form::submit('Update Users',['class'=>'btn btn-primary']) !!}
-            </div>
+            <div class="row">
+
+                <div class="form-group col-sm-6">
+                    {!! Form::submit('Update Users',['class'=>'btn btn-primary']) !!}
+                </div>
 
             {{csrf_field()}}
 
             {!! Form::close() !!}
             @include('includes.form_error')
+                {!! Form::open(['method'=>'DELETE','action'=>['Admin\AdminUsersController@destroy',$user->id]]) !!}
 
+                <div class="form-group col-sm-6">
+                    {!! Form::submit('Delete user',['class'=>'btn btn-danger']) !!}
+                </div>
+
+                {{csrf_field()}}
+
+                {!! Form::close() !!}
+            </div>
         </div>
+
         </div>
     </div>
 

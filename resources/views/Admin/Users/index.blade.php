@@ -1,7 +1,12 @@
 @extends('layouts.admin')
 
 @section('content')
+    @if(Session::has('deleted_user'))
+        <p>{{session('deleted_user')}}</p>
+        @endif
+
         <div class="container">
+
             <h1>User List</h1>
             <table class="table table-dark">
                     <hr>
