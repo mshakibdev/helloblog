@@ -68,10 +68,16 @@
               Products
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
+          <li class="nav-item ">
+            <a class="nav-link" href="{{route('users.index')}}">
               <span data-feather="users"></span>
-              Users
+              All Users
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="{{route('users.create')}}">
+              <span data-feather="users"></span>
+             Create Users
             </a>
           </li>
           <li class="nav-item">

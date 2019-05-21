@@ -5,7 +5,7 @@
     <div class="container-fluid col-md-6 ">
         <h1>User Create Form</h1>
         <hr>
-        {!! Form::open(['method'=>'POST','action'=>'Admin\AdminUsersController@store']) !!}
+        {!! Form::open(['method'=>'POST','action'=>'Admin\AdminUsersController@store', 'files'=>'true']) !!}
 
              <div class="form-group">
                 {!! Form::label('name','Name :') !!}
@@ -25,10 +25,16 @@
                 {!! Form::label('is_active','Status :') !!}
                 {!! Form::select('is_active',array(1=>'Active',0=>'Not Active'),0,['class'=>'form-control ']) !!}
             </div>
-        <div class="form-group ">
-                {!! Form::label('password','Password:') !!}
-                {!! Form::password('password',null,['class'=>'form-control']) !!}
-        </div>
+
+            <div class="form-group">
+                    {!! Form::label('photo_id','Upload:') !!}
+                    {!! Form::file('photo_id',null,['class'=>'form-control']) !!}
+            </div>
+
+            <div class="form-group ">
+                    {!! Form::label('password','Password:') !!}
+                    {!! Form::password('password',null,['class'=>'form-control']) !!}
+            </div>
 
             <div class="form-group">
                  {!! Form::submit('Create Users',['class'=>'btn btn-primary']) !!}
@@ -37,5 +43,7 @@
                 {{csrf_field()}}
 
         {!! Form::close() !!}
+        @include('includes.form_error')
     </div>
+
 @stop
